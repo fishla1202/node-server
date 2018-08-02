@@ -1,6 +1,6 @@
 const express = require('express');
 const hbs = require('hbs');
-
+const port = process.env.PORY || 3000;
 let app = express();
 
 hbs.registerPartials('./views/partials');
@@ -21,4 +21,6 @@ app.get('/', (req, res) => {
     })
 });
 
-app.listen(3000);
+app.listen(port, () => {
+    console.log(`open in port: ${port}`);
+});
